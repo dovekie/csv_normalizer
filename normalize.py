@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import csv
+import io
 import sys
 from datetime import datetime
 from datetime import timedelta
@@ -128,7 +129,8 @@ def write_rows(headers, rows):
         for row in rows:
             writer.writerow(row.create_DTO())
 
-reader = csv.reader(sys.stdin)
+binary_buffer = io.TextIOWrapper(sys.stdin.buffer, errors='replace')
+reader = csv.reader(binary_buffer)
 headers = pop_header(reader)
 all_rows = create_row_objects(reader)
 write_rows(headers, all_rows)

@@ -1,2 +1,7 @@
-commands to use: cat csvfile.csv | python normalize.py
-or: python normalize.py < csvfile.csv
+# CSV Normalizer
+
+This script takes a CSV file and runs a series of normalization functions on it to produce a standard output.
+
+To use this script:
+
+python normalize.py < csvfile.csv
