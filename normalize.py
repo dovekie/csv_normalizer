@@ -129,7 +129,8 @@ def write_rows(headers, rows):
         for row in rows:
             writer.writerow(row.create_DTO())
 
-binary_buffer = io.TextIOWrapper(sys.stdin.buffer, errors='replace')
+# take the buffer from stdin and set up a text stream that will replace bad unicode
+safety_buffer = io.TextIOWrapper(sys.stdin.buffer, errors='replace')
 reader = csv.reader(binary_buffer)
 headers = pop_header(reader)
 all_rows = create_row_objects(reader)
