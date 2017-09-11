@@ -5,3 +5,5 @@ This script takes a CSV file and runs a series of normalization functions on it 
 To use this script:
 
 python normalize.py < csvfile.csv
+
+TODO: tests
