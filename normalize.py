@@ -131,7 +131,7 @@ def write_rows(headers, rows):
 
 # take the buffer from stdin and set up a text stream that will replace bad unicode
 safety_buffer = io.TextIOWrapper(sys.stdin.buffer, errors='replace')
-reader = csv.reader(binary_buffer)
+reader = csv.reader(safety_buffer)
 headers = pop_header(reader)
 all_rows = create_row_objects(reader)
 write_rows(headers, all_rows)
